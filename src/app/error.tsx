@@ -44,11 +44,11 @@ export default function ErrorPage({
           <h1 className="text-7xl sm:text-9xl font-black tracking-tighter bg-gradient-to-r from-rose-500 to-[#0392EA] bg-clip-text text-transparent mb-4">
             500
           </h1>
-          
+
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mb-4 tracking-tight">
             Unexpected System Interruption
           </h2>
-          
+
           <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base max-w-md mx-auto mb-8 leading-relaxed">
             The server encountered an internal issue and could not complete your request. Our engineering team has been notified.
           </p>
