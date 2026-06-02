@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Send, CheckCircle2, AlertCircle } from "lucide-react";
 
 export default function ContactForm() {
+  // State hook to manage individual form input values
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -13,18 +14,25 @@ export default function ContactForm() {
     message: "",
   });
   
+  // State to store field-level validation errors
   const [errors, setErrors] = useState<Record<string, string>>({});
+  // Tracks whether the form has been successfully sent
   const [submitted, setSubmitted] = useState(false);
+  // Controls loading spinner and button disabled states during submission
   const [loading, setLoading] = useState(false);
 
+  // Generic change handler for text inputs, select dropdowns, and textareas
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
+    // Update local state with the new value
     setFormData((prev) => ({ ...prev, [name]: value }));
+    // Clear validation error for this field if the user is typing/correcting it
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
 
+  // Validates required fields and email formats before submission
   const validate = () => {
     const newErrors: Record<string, string> = {};
     if (!formData.name.trim()) newErrors.name = "Full name is required.";
@@ -38,8 +46,11 @@ export default function ContactForm() {
     return newErrors;
   };
 
+  // Form submission handler
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Perform client-side validation
     const newErrors = validate();
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -47,10 +58,11 @@ export default function ContactForm() {
     }
 
     setLoading(true);
-    // Simulate API call
+    // Simulate an external API call or server action delay (1.2s)
     setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
+      // Reset form data after successful submission
       setFormData({
         name: "",
         email: "",

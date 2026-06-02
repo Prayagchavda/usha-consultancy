@@ -11,6 +11,7 @@ import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import { Cpu, Check } from "lucide-react";
 
+// List of technologies supported by Usha Consultancy, complete with CDN icon URLs
 const TECH_STACK = [
   { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
   { name: "Next.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
@@ -26,6 +27,7 @@ const TECH_STACK = [
   { name: "Vercel", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" }, // Next logo as placeholder for Vercel
 ];
 
+// Main landing page component for the Usha Consultancy website
 export default function Home() {
   return (
     <>
